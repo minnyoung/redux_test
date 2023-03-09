@@ -43,7 +43,28 @@
       }
 
       */
-      const reducer = (state = { value: 0 }, action) => {};
+      const reducer = (state = { value: 0 }, action) => {
+        /*
+        4. action 의 type에 맞게 state값 만들어내게 reducer 만들기
+        dispatch는 action을 받으면 그 action을 reducer로 보냄. 
+        reducer는 action 안의 type을 확인해서 어떻게 state를 바꿔야 하는지 확인함.
+
+        reducer 는 새로운 state를 만들기 위해서 if-else문이나 switch 등 다양한 로직을 사용할 수 있음.
+
+        reducer에서 return 하는 값은 무조건 새로운 state값이 됨.
+        그래서 type의 case에 따라서 return 하는 값을 다르게 줄 수 있다. 
+
+        */
+        // 객체에서 spread operator를 이용하여 객체의 복사 또는 프로퍼티를 업데이트 할 수 있습니다.
+        switch (action.type) {
+          case "plus":
+            return { ...state, value: state.value + 1 };
+          case "minus":
+            return { ...state, value: state.value - 1 };
+          default:
+            return state;
+        }
+      };
 
       // 1. store를 만든다. createStore 안에 reducer함수가 들어간다.
       const store = Redux.createStore(reducer);
