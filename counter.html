@@ -27,6 +27,24 @@
       const minusButton = document.querySelector("#minusButton");
       const value = document.querySelector("#value");
 
+      /*
+      2. reducer 함수를 생성한다.
+      reducer 함수는 현재 state값과 action을 인자로 받는다.
+      state의 초기값을 설정하는 방법은 여러가지이나, state에 직접 할당해주는 방법으로 하겠다.
+
+      reducer = (state = {value : 0}, action)
+
+      혹은, 초기값을 변수로 선언해서 state에 할당해줘도 된다.
+      혹은, state값을 reducer 함수 내에서 확인하여 할당해줘도 된다.
+      초기값이 없는 state는 reducer 함수 안에서 undefined 상태이다.
+
+      그래서, if(state === undefined) {
+          return {value : 0} << 으로 초기값을 설정해주면 된다.
+      }
+
+      */
+      const reducer = (state = { value: 0 }, action) => {};
+
       // 1. store를 만든다. createStore 안에 reducer함수가 들어간다.
       const store = Redux.createStore(reducer);
     </script>
