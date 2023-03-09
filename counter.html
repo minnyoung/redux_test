@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+  </head>
+  <body>
+    <style>
+      button {
+        margin: 0 5px;
+      }
+
+      #container {
+        display: flex;
+        padding: 5px;
+      }
+    </style>
+
+    <div>흑묘테크 카운터</div>
+    <div id="container">
+      <button id="plusButton">+</button>
+      <div id="value">0</div>
+      <button id="minusButton">-</button>
+    </div>
+
+    <script>
+      const plusButton = document.querySelector("#plusButton");
+      const minusButton = document.querySelector("#minusButton");
+      const value = document.querySelector("#value");
+    </script>
+  </body>
+</html>
