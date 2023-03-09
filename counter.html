@@ -88,6 +88,30 @@
       function minus() {
         store.dispatch({ type: "minus" });
       }
+
+      // 5. 새로운 state를 ui에 적용하기
+      /*
+      store의 state를 가져오기 위해선 getState() 함수를 사용해야 한다. 
+      => store.getState()
+
+      가져온 state를 dom요소에 넣어준다. 
+      => value.innerHTML = store.getState().value;
+
+      하지만, state가 바뀔때마다 ui가 변하지 않는다.
+      ui에 적용해주는 함수는 딱 한번 실행되기 때문.
+
+      그럴땐, subscribe 함수를 이용해서, store 안에 state가 변할 때마다
+      ui를 새롭게 적용해줄 수 있게 해주면 된다.
+      subscribe(__) 파라미터에 업데이트 해주고 싶은 함수를 넣으면 된다. 
+
+      => store.subscribe(render)
+
+      */
+      function render() {
+        value.innerHTML = store.getState().value;
+      }
+
+      store.subscribe(render);
     </script>
   </body>
 </html>
