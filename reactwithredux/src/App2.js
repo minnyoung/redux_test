@@ -26,10 +26,10 @@ function App2() {
 
   const dispatch = useDispatch();
   function plus() {
-    dispatch({ type: "BRCounter/plus" });
+    dispatch(counterSlice.actions.plus());
   }
   function minus() {
-    dispatch({ type: "BRCounter/minus" });
+    dispatch(counterSlice.actions.minus());
   }
 
   return (
