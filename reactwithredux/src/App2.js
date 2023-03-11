@@ -1,5 +1,5 @@
 import "./App.css";
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore, createAction } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 
 const counterSlice = createSlice({
@@ -25,13 +25,23 @@ function App2() {
   const count = useSelector((state) => state.counter.value);
 
   const dispatch = useDispatch();
+
+  //   function plus() {
+  //     dispatch(counterSlice.actions.plus());
+  //   }
+  //   function minus() {
+  //     dispatch(counterSlice.actions.minus());
+  //   }
+
+  const plusAction = createAction("BRCounter/plus");
+  const minusAction = createAction("BRCounter/minus");
+
   function plus() {
-    dispatch(counterSlice.actions.plus());
+    dispatch(plusAction());
   }
   function minus() {
-    dispatch(counterSlice.actions.minus());
+    dispatch(minusAction());
   }
-
   return (
     <div>
       <div>흑묘테크 카운터</div>
