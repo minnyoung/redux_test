@@ -23,14 +23,27 @@ export const store = configureStore({
 
 function App2() {
   const count = useSelector((state) => state.counter.value);
+
+  const dispatch = useDispatch();
+  function plus() {
+    dispatch({ type: "BRCounter/plus" });
+  }
+  function minus() {
+    dispatch({ type: "BRCounter/minus" });
+  }
+
   return (
     <div>
       <div>흑묘테크 카운터</div>
       <div>with redux-toolkit</div>
       <div id="container">
-        <button id="plusButton">+</button>
+        <button id="plusButton" onClick={plus}>
+          +
+        </button>
         <div id="value">{count}</div>
-        <button id="minusButton">-</button>
+        <button id="minusButton" onClick={minus}>
+          -
+        </button>
       </div>
     </div>
   );
