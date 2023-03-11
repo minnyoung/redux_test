@@ -1,5 +1,6 @@
 import "./App.css";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
 
 const counterSlice = createSlice({
   name: `BRCounter`,
@@ -21,13 +22,14 @@ export const store = configureStore({
 });
 
 function App2() {
+  const count = useSelector((state) => state.counter.value);
   return (
     <div>
       <div>흑묘테크 카운터</div>
       <div>with redux-toolkit</div>
       <div id="container">
         <button id="plusButton">+</button>
-        <div id="value"></div>
+        <div id="value">{count}</div>
         <button id="minusButton">-</button>
       </div>
     </div>
