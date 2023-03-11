@@ -1,6 +1,20 @@
 import "./App.css";
+import { createSlice } from "@reduxjs/toolkit";
 
 function App2() {
+  const counterSlice = createSlice({
+    name: `counter`,
+    initialState: { value: 0 },
+    reducers: {
+      plus: (state, action) => {
+        state.value += 1;
+      },
+      minus: (state, action) => {
+        state.value -= 1;
+      },
+    },
+  });
+
   return (
     <div>
       <div>흑묘테크 카운터</div>
