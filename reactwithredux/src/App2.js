@@ -1,20 +1,26 @@
 import "./App.css";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+
+const counterSlice = createSlice({
+  name: `BRCounter`,
+  initialState: { value: 0 },
+  reducers: {
+    plus: (state, action) => {
+      state.value += 1;
+    },
+    minus: (state, action) => {
+      state.value -= 1;
+    },
+  },
+});
+
+export const store = configureStore({
+  reducer: {
+    counter: counterSlice.reducer,
+  },
+});
 
 function App2() {
-  const counterSlice = createSlice({
-    name: `counter`,
-    initialState: { value: 0 },
-    reducers: {
-      plus: (state, action) => {
-        state.value += 1;
-      },
-      minus: (state, action) => {
-        state.value -= 1;
-      },
-    },
-  });
-
   return (
     <div>
       <div>흑묘테크 카운터</div>
