@@ -6,11 +6,17 @@ const counterSlice = createSlice({
   name: `BRCounter`,
   initialState: { value: 0 },
   reducers: {
+    // plus: (state, action) => {
+    //   state.value += 1;
+    // },
+    // minus: (state, action) => {
+    //   state.value -= 1;
+    // },
     plus: (state, action) => {
-      state.value += 1;
+      state.value += action.payload;
     },
     minus: (state, action) => {
-      state.value -= 1;
+      state.value -= action.payload;
     },
   },
 });
@@ -37,10 +43,10 @@ function App2() {
   const minusAction = createAction("BRCounter/minus");
 
   function plus() {
-    dispatch(plusAction());
+    dispatch(plusAction(2));
   }
   function minus() {
-    dispatch(minusAction());
+    dispatch(minusAction(2));
   }
   return (
     <div>
